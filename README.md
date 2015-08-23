@@ -12,9 +12,25 @@ More specifically, the script run_analysis.R does the following:
 4. Appropriately labels the data set with descriptive variable names.
 5. From the data in Step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-## Code Example
+## Code Example and Operation
 
-Show what the library does as concisely as possible, developers should be able to figure out **how** your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
+The script run_analysis.R performs the steps outlined above in the following order: 1, 4, 3, 2, 5.
+
+It operates as follows:
+
+* Read the labels for the activities and the features from the given data
+
+* Read and combine the training and test data using a combination of rbind and cbind
+
+* Label the variables and the activities using descriptive names
+
+* Extract the relevant data using simple subsetting (with the help of grepl to construct the appropriate vector)
+
+* Constructs the table of averages using ddply and numcolwise
+
+* Writes the table of averages to _uci_har_avgs.txt_
+
+The script defines no new function, and requires the plyr library.
 
 ## Motivation
 

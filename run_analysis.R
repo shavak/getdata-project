@@ -19,15 +19,20 @@ subj <- rbind(read.table(file.path("UCI HAR Dataset", "train", "subject_train.tx
 y <- rbind(read.table(file.path("UCI HAR Dataset", "train", "y_train.txt"), colClasses = "factor"), read.table(file.path("UCI HAR Dataset", "test", "y_test.txt"), colClasses = "factor"))
 X <- rbind(read.table(file.path("UCI HAR Dataset", "train", "X_train.txt"), colClasses = "numeric"), read.table(file.path("UCI HAR Dataset", "test", "X_test.txt"), colClasses = "numeric"))
 
+# Step 1
 uci_har <- cbind(subj, y, X) # stitch the whole thing together: Step 1, check!
+
+# Step 4
 names(uci_har) <- c("Subject", "Activity", make.names(features)) # label variables descriptively: Step 4, check!
+
+# Step 3
 levels(uci_har$Activity) <- activity_labels # label activities descriptively: Step 3, check!
 
-# now to the extraction
+# Step 2
 extraction_vector <- c(TRUE, TRUE, grepl("mean()", features, fixed = TRUE) | grepl("std()", features, fixed = TRUE)) # construct the extraction vector, this line is easy to modify
 uci_har <- uci_har[, extraction_vector] # Step 2, check!
 
-# now for the averaging
+# Step 5
 uci_har_avgs <- ddply(uci_har, .(Subject, Activity), numcolwise(mean))
 names(uci_har_avgs)[-c(1, 2)] <- paste(names(uci_har_avgs)[-c(1, 2)], "mean", sep = ".") # Step 5, check!
 fnm <- "uci_har_avgs.txt"
@@ -38,3 +43,4 @@ conn <- file(fnm)
 open(conn, "w")
 write.table(uci_har_avgs, conn, quote = FALSE, row.names = FALSE) # write the table
 close(conn)
+uci_har_avgs
