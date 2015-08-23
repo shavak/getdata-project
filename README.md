@@ -5,6 +5,7 @@ This repository contains the solution files for the Getting and Cleaning Data Co
 The project involves cleaning and subsetting a data set taken from [here](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones).
 
 More specifically, the script run_analysis.R does the following:
+
 1. Merges the given training and test sets to create one data set.
 2. Extracts only the measurements on the mean and standard deviation for each measurement.
 3. Uses descriptive activity names to name the activities in the data set.
