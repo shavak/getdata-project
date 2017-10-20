@@ -32,7 +32,7 @@ It operates as follows:
 
 The script assumes that the directory _UCI HAR Dataset_ exists in the working directory.
 
-The script defines no new function, and requires the *plyr* library.
+The script defines no new functions, and requires the *plyr* library.
 
 ## Usage
 

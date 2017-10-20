@@ -1,13 +1,14 @@
-## Code Book
+# Code Book
 This document is intended to be read in conjuction with the code book present in the original data set.
 
-The table written to uci_har_avgs.txt contains the following columns:
+## Content
+The data frame written to uci_har_avgs.txt contains the following columns:
 
 * Subject: an integer in the range 1-30 identifying the volunteer.
 
 * Activity: one of "WALKING", "WALKING_UPSTAIRS", "WALKING_DOWNSTAIRS", "SITTING", "STANDING", "LAYING"; identifying the activity that the volunteer performed whilst being observed.
 
-* The means of each of the following variables as described in the documentation of the original data set:
+* The mean of each of the following variables as described in the documentation of the original data set:
 
 tBodyAcc-mean()-X
 tBodyAcc-mean()-Y
@@ -77,3 +78,12 @@ fBodyBodyGyroJerkMag-mean()
 fBodyBodyGyroJerkMag-std()
 
 The means are computed for each (Subject, Activity) pair.
+
+## Method
+
+To construct the data set above, the following transformations were applied to the UCI HAR data set.
+
+1. The training and test data sets were merged to create one data set.
+2. The features were given descriptive names in keeping with tidy data principles.
+3. The factor values of the data were given descriptive names in keeping with tidy data principles.
+4. The mean of each variable was calculated for each (Activity, Subject) pair.
