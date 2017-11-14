@@ -10,8 +10,15 @@
 
 library(plyr) # used for last step
 
-features <- read.table(file.path("UCI HAR Dataset", "features.txt"), row.names = 1, colClasses = "character")[, 1] # to be used to label the columns
-activity_labels <- read.table(file.path("UCI HAR Dataset", "activity_labels.txt"), row.names = 1, colClasses = "character")[, 1] # to be used to label the activities
+# to be used to label the columns
+features <- read.table(file.path("UCI HAR Dataset", "features.txt"),
+                       row.names = 1,
+                       colClasses = "character")[, 1]
+
+# to be used to label the activities:
+activity_labels <- read.table(file.path("UCI HAR Dataset", "activity_labels.txt"),
+                              row.names = 1, colClasses = "character")[, 1]
+
 
 # Read the subject, activity, and feature variables from the training and test directories using rbind to stitch them together.
 # Order is important; train first and then test.
